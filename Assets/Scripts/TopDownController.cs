@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TopDownController : MonoBehaviour
 {
+    //InputSystem의 Action을 연경해주는 컨트롤러아닐까.
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
    
@@ -15,5 +16,6 @@ public class TopDownController : MonoBehaviour
     {
         OnLookEvent?.Invoke(direaction);
     }
+   
 
 }
