@@ -8,15 +8,6 @@ public class TopDownController : MonoBehaviour
     public event Action<Vector2> OnLookEvent;
     public event Action<bool> OnDashEvent;
 
-   // [HideInInspector]public bool isDash;
-
-    //protected virtual void Update()
-    //{
-    //    if(isDash)
-    //    {
-    //        CallDashEvent();
-    //    }
-    //}
     public void  CallMoveEvent(Vector2 direaction)
     {
         OnMoveEvent?.Invoke(direaction);

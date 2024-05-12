@@ -7,7 +7,7 @@ public class CharactorAnimationController: AnimationController
 
     private readonly float magnituteThreadshold = 0.5f; //문턱
 
-    protected void Awake()
+    protected override void Awake()
     {
         base.Awake();
     }

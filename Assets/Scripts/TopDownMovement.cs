@@ -7,16 +7,19 @@ public class TopDownMovement :MonoBehaviour
     private TopDownController controller;
     private Rigidbody2D rb;
     private Vector2 moveDireaction = Vector2.zero;
+
+    private CharacterStatHandler characterStatHandler;
     private float speed = 3f;
 
     public void Awake()
     {
+        characterStatHandler= GetComponent<CharacterStatHandler>();
         controller = GetComponent<TopDownController>();
         rb = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
     {
-        rb.velocity = moveDireaction * speed;//나중에 속도를 곱해줘야 한다.
+        rb.velocity = moveDireaction * speed;
     }
     private void Start()
     {
@@ -28,11 +31,11 @@ public class TopDownMovement :MonoBehaviour
     {
         if(push)
         {
-            speed = 10f; //나중에 값 바꾸자
+            speed = characterStatHandler.characterInfo.runSpeed; 
         }
         else
         {
-            speed = 3f;
+            speed = characterStatHandler.characterInfo.moveSpeed;
         }
     }
 

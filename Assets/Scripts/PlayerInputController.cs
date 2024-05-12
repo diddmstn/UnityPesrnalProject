@@ -5,8 +5,6 @@ public class PlayerInputController: TopDownController
 {
     //InputSystem을 연결한 class를 상속받은 ...클래스? 왜 이렇게 나눠야 하는지는 아직 잘 모르겠다.
     private Camera _camera;
-    
-
 
     private void Awake()
     {
