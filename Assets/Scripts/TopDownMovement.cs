@@ -19,6 +19,7 @@ public class TopDownMovement :MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(Time.timeScale ==1)
         rb.velocity = moveDireaction * speed;
     }
     private void Start()
