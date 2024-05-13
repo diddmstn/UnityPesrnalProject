@@ -67,22 +67,18 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.0f);
         warningText.enabled = false;
     }
-   public void ButtonActive() //창이 두개씩 열리진 않지만 버튼 눌러도 안꺼짐..
+   public void ButtonActive() 
     {
         Time.timeScale = 0;
-        if(lastActiveObj!=null)
+        GameObject obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
+        bool active = obj.activeSelf;
+        if (lastActiveObj!=null)
         {
             lastActiveObj.SetActive(false);
         }
-        GameObject obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
-        bool active = obj.activeSelf;
         obj.SetActive(!active);
-
-        if (!active==false)
-        {
-            obj.SetActive(!active);
-            Time.timeScale = 1;
-        }
+        Time.timeScale = nameInputPanel.activeSelf ? 1 : 0;
+        if (!active == false) Time.timeScale = 1;
         lastActiveObj = obj;
 
     }
