@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   name: 
+  id: 1
   moveSpeed: 3
   runSpeed: 5

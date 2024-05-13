@@ -5,6 +5,7 @@ public class CharacterInfo : ScriptableObject
 {
     [Header("Character Info")]
     public string name;
+    public int id;
     public float moveSpeed;
     public float runSpeed;
 

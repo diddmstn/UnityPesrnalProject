@@ -8,6 +8,7 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    //public ParticipantList participantList;
     Coroutine runningCorutine;
     [Header("CharacterSelect")]
     public CharactorAnimationController charactorAnimation;
@@ -51,7 +52,6 @@ public class GameManager : MonoBehaviour
             characterStatHandler.characterInfo.name = inputText.text;
             obj.SetActive(false);
             characterStatHandler.UpdateStatus();
-
             Time.timeScale = 1;
         }
     }    
