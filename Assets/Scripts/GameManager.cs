@@ -9,6 +9,7 @@ using UnityEngine.SocialPlatforms;
 
 public class GameManager : MonoBehaviour
 {
+    bool activeUI;
     Coroutine runningCorutine;
     [Header("CharacterSelect")]
     public CharactorAnimationController charactorAnimation;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     [Header("MiniUI")]
     public GameObject miniCharacterSelect;
     public TMP_Text miniNameText;
+    GameObject lastActiveObj; //창이 여러개 켜지는걸 방지하기 위한 
 
     //public SpriteRenderer playerSprite;
 
@@ -65,20 +67,26 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.0f);
         warningText.enabled = false;
     }
-   public void ButtonActive()
+   public void ButtonActive() //창이 두개씩 열리진 않지만 버튼 눌러도 안꺼짐..
     {
         Time.timeScale = 0;
+        if(lastActiveObj!=null)
+        {
+            lastActiveObj.SetActive(false);
+        }
         GameObject obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
         bool active = obj.activeSelf;
         obj.SetActive(!active);
 
-        if(!active==false)
+        if (!active==false)
         {
-            obj.SetActive(false);
+            obj.SetActive(!active);
             Time.timeScale = 1;
         }
+        lastActiveObj = obj;
+
     }
-   
+
     public void SelectCharacter()
     {
         GameObject obj = EventSystem.current.currentSelectedGameObject;
