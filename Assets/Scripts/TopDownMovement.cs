@@ -19,7 +19,7 @@ public class TopDownMovement :MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(Time.timeScale ==1)
+        if(Time.timeScale ==1)//캐릭터가 수정중이면 움직이지않는다.
         rb.velocity = moveDireaction * speed;
     }
     private void Start()
@@ -30,7 +30,7 @@ public class TopDownMovement :MonoBehaviour
 
     private void Dash(bool push)
     {
-        if(push)
+        if(push)//대시 키를 누르고 있다면
         {
             speed = characterStatHandler.characterInfo.runSpeed; 
         }

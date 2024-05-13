@@ -1,15 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using System;
-using UnityEngine.SocialPlatforms;
+
 
 public class GameManager : MonoBehaviour
 {
-    bool activeUI;
+    public static bool activeUI;
     Coroutine runningCorutine;
     [Header("CharacterSelect")]
     public CharactorAnimationController charactorAnimation;
@@ -69,17 +68,22 @@ public class GameManager : MonoBehaviour
     }
    public void ButtonActive() 
     {
-        Time.timeScale = 0;
-        GameObject obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
-        bool active = obj.activeSelf;
-        if (lastActiveObj!=null)
+        if(activeUI==false) // 대화중 클릭 방지
         {
-            lastActiveObj.SetActive(false);
+            Time.timeScale = 0; //버튼 활성화 중에는 캐릭터가 멈춰야함
+                                //클릭한 버튼의 오브젝트 정보를 받아온다.
+            GameObject obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
+            bool active = obj.activeSelf;
+            if (lastActiveObj != null)//버튼이 켜져있는 도중 다른 버튼도 켜저 겹치는 것을 방지
+            {
+                lastActiveObj.SetActive(false);
+            }
+            obj.SetActive(!active);//현재 상태와 반대로 껐다 키기
+            Time.timeScale = nameInputPanel.activeSelf ? 1 : 0;
+            if (!active == false) Time.timeScale = 1;
+            lastActiveObj = obj;
         }
-        obj.SetActive(!active);
-        Time.timeScale = nameInputPanel.activeSelf ? 1 : 0;
-        if (!active == false) Time.timeScale = 1;
-        lastActiveObj = obj;
+       
 
     }
 
