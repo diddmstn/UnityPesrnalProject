@@ -8,7 +8,6 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public static bool activeUI;
     Coroutine runningCorutine;
     [Header("CharacterSelect")]
     public CharactorAnimationController charactorAnimation;
@@ -68,21 +67,18 @@ public class GameManager : MonoBehaviour
     }
    public void ButtonActive() 
     {
-        if(activeUI==false) // 대화중 클릭 방지
+        Time.timeScale = 0; //버튼 활성화 중에는 캐릭터가 멈춰야함
+                            //클릭한 버튼의 오브젝트 정보를 받아온다.
+        GameObject obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
+        bool active = obj.activeSelf;
+        if (lastActiveObj != null)//버튼이 켜져있는 도중 다른 버튼도 켜저 겹치는 것을 방지
         {
-            Time.timeScale = 0; //버튼 활성화 중에는 캐릭터가 멈춰야함
-                                //클릭한 버튼의 오브젝트 정보를 받아온다.
-            GameObject obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
-            bool active = obj.activeSelf;
-            if (lastActiveObj != null)//버튼이 켜져있는 도중 다른 버튼도 켜저 겹치는 것을 방지
-            {
-                lastActiveObj.SetActive(false);
-            }
-            obj.SetActive(!active);//현재 상태와 반대로 껐다 키기
-            Time.timeScale = nameInputPanel.activeSelf ? 1 : 0;
-            if (!active == false) Time.timeScale = 1;
-            lastActiveObj = obj;
+            lastActiveObj.SetActive(false);
         }
+        obj.SetActive(!active);//현재 상태와 반대로 껐다 키기
+        Time.timeScale = nameInputPanel.activeSelf ? 1 : 0;
+        if (!active == false) Time.timeScale = 1;
+        lastActiveObj = obj;
        
 
     }

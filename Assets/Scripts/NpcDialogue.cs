@@ -10,12 +10,13 @@ public class NpcDialogue : MonoBehaviour
     public GameObject dialoguePanel;
     public GameObject TalkButton;
     public TMP_Text dialogue;
+    public GameObject BottomUI;
 
     private void Start()
     {
         list.Add("TIL 쓰셨나요?,꼭 쓰셔야합니다. TIL이 얼마나 중요하냐면, ~1시간 동안 이어진 TIL 이야기~, 아무튼 쓰세요");
         list.Add("여러분 꼭 입실체크 헤주셔야합니다,꼭 입실버튼 눌러야합니다. 얼마나 중요하냐면, ~1시간 동안 이어진 입실체크 이야기~, 아무튼 누르세요");
-        list.Add("여러분 모르는 문제가 있으면 꼭 튜터님들 찾아오셔야합니다.,튜터님들을 찾아가는게 얼마나 중요하냐면, ~1시간 동안 이어진 튜터님들 이야기~, 아무튼 찾아가세요");
+        list.Add("여러분 모르는 문제가 있으면 튜터님들 찾아오셔야합니다.,튜터님들을 찾아가는게 얼마나 중요하냐면, ~1시간 동안 이어진 튜터님들 이야기~, 아무튼 찾아가세요");
 
     }
 
@@ -33,7 +34,7 @@ public class NpcDialogue : MonoBehaviour
         }
         dialoguePanel.SetActive(false);
         TalkButton.SetActive(true);
-        GameManager.activeUI = false;
+        BottomUI.SetActive(true);
 
         Time.timeScale = 1;
     }
@@ -42,7 +43,7 @@ public class NpcDialogue : MonoBehaviour
         Time.timeScale = 0;
         dialoguePanel.SetActive(true);
         TalkButton.SetActive(false);
-        GameManager.activeUI = true;
+        BottomUI.SetActive( false);
         StartCoroutine(StartDialogue());
     }
     private void OnTriggerEnter2D(Collider2D collision)

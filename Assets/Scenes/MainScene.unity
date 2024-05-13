@@ -10570,6 +10570,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 944117237}
   TalkButton: {fileID: 2101383953}
   dialogue: {fileID: 139337508}
+  BottomUI: {fileID: 8860}
 --- !u!1 &1715687768
 GameObject:
   m_ObjectHideFlags: 0
