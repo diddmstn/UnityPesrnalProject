@@ -21,5 +21,8 @@ __2022.3.17f1__<br><br>
 실제 시간 표시<br>
 인게임 이름 바꾸기<br>
 인게임 캐릭터 선택<br>
-NPC 대화
+NPC 대화<br><br>
 
+|게임 시작 화면|
+|:------:|
+https://github.com/diddmstn/UnityZeplike/blob/main/ReadMeImage/InGameImage.png
