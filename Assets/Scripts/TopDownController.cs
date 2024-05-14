@@ -6,6 +6,7 @@ public class TopDownController : MonoBehaviour
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
     public event Action<bool> OnDashEvent;
+    public event Action<bool> OnEmotionEvent;
 
     public void  CallMoveEvent(Vector2 direaction)
     {
@@ -19,5 +20,9 @@ public class TopDownController : MonoBehaviour
     public void CallDashEvent(bool push)
     {
         OnDashEvent?.Invoke(push);
+    }
+    public void CallEmoteEvent(bool push)
+    {
+        OnEmotionEvent?.Invoke(push);
     }
 }

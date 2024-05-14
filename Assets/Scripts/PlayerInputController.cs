@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController: TopDownController
 {
-    //InputSystem을 연결한 class를 상속받은 ...클래스? 왜 이렇게 나눠야 하는지는 아직 잘 모르겠다.
     private Camera _camera;
 
     private void Awake()
@@ -13,7 +12,7 @@ public class PlayerInputController: TopDownController
 
     public void OnMove(InputValue value)
     {
-        Vector2 moveInput = value.Get<Vector2>().normalized; // 뭐지,,입력 받는다는건가
+        Vector2 moveInput = value.Get<Vector2>().normalized; 
         CallMoveEvent(moveInput);
     }
 
@@ -28,6 +27,10 @@ public class PlayerInputController: TopDownController
     public void OnDash(InputValue value)
     {
         CallDashEvent(value.isPressed);
+    }
+    public void OnEmotion(InputValue value)
+    {
+        CallEmoteEvent(value.isPressed);
     }
 }
 
