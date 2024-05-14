@@ -23,6 +23,15 @@ __2022.3.17f1__<br><br>
 인게임 캐릭터 선택<br>
 NPC 대화<br><br>
 
+---
 |게임 시작 화면|
 |:------:|
-https://github.com/diddmstn/UnityZeplike/blob/main/ReadMeImage/InGameImage.png
+|![시작화면](https://github.com/diddmstn/UnityZeplike/blob/main/ReadMeImage/StartImage.png)|
+
+|인게임 화면|
+|:------:|
+|![인게임 화면](https://github.com/diddmstn/UnityZeplike/blob/main/ReadMeImage/InGameImage.png)|
+
+|NPC 대화|
+|:------:|
+|![NPC 대화](https://github.com/diddmstn/UnityZeplike/blob/main/ReadMeImage/TalkNPC.png)|
